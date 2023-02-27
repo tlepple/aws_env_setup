@@ -11,7 +11,7 @@ cd ~
 mkdir -p ./Documents/cloud_stuff/docker_stuff
 
 # create a softlink to this directory
-sudo ln -s /Users/$USER/Documents/cloud_stuff/docker_stuff ~/fishermans_wharf
+sudo ln -s /home/$USER/Documents/cloud_stuff/docker_stuff ~/fishermans_wharf
 
 ```
 
