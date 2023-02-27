@@ -160,7 +160,7 @@ cd /app/aws_env_setup
 docker ps -a
 
 #  start an existing container
-docker start aws_iceberg
+docker container start aws_iceberg
 
 # connect to command line of this container
 docker exec -it aws_iceberg bash
