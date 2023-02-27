@@ -61,7 +61,7 @@ vi /app/aws_env_setup/bin/provider/aws/demo.properties
 #  Updates go here:
 ###############################################################################
 OWNER_TAG=tlepple
-BIND_MNT_SOURCE="/Users/tlepple/Documents/cloud_stuff/docker_stuff"
+BIND_MNT_SOURCE="/home/tlepple/Documents/cloud_stuff/docker_stuff"
 HOST_PREFIX="icetesting-"
 
 # Below are the instance types for the various services. It's recommended to use
