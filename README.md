@@ -4,6 +4,7 @@
 ---
 
 # Build a docker container to execute this build
+* The softlink is running against a linux destop.  skip this for non linux systems
 
 ```
 # create a directory in OS for bind mount:
