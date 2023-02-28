@@ -27,7 +27,7 @@ docker volume create iceberg_vol1
 docker run -it \
   --name aws_iceberg \
   --mount source=iceberg_vol1,target=/app \
-  --mount type=bind,source=/home/tlepple/Documents/cloud_stuff/docker_stuff,target=/home/tlepple/fishermans_wharf \
+  --mount type=bind,source=/home/tlepple/Documents/cloud_stuff/docker_stuff,target=/root/fishermans_wharf \
   centos:7 bash
 
   
