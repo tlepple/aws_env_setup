@@ -74,34 +74,17 @@ ENDATE_TAG=permanent
 # set the docker bind mount properties
 BIND_MNT_TARGET="/fishermans_wharf/"
 
-# N. Virginia - us-east-1
-#AMI_ID=ami-02eac2c0129f6376b
-#AWS_REGION=us-east-1
-
-# Ireland eu-west-1a
-#AMI_ID=ami-0ff760d16d9497662
-
 # Ohio us-east-2
 AMI_ID=ami-03a311cadf2d2a6f8
 AWS_REGION=us-east-2
 
-#N. California us-west-1
-#AMI_ID=ami-074e2d6769f445be5
-#AWS_REGION=us-west-1
 
-#Ireland
-#AMI_ID=ami-0ff760d16d9497662
-#AWS_REGION=eu-west-1
-
-# Northern California ( This AMI has wwbank demo pre-installed )
-#AMI_ID=ami-043646c1ef78a684d
-#AWS_REGION=us-west-1
 
 ###############################################################################
 #  No edits required below
 ###############################################################################
 
-# Username to SSH to instances. All of the pre-selected AMIs use the 'centos' user.
+# Username to SSH to instances.
 # If you use your own AMI, you may need to change the ssh username as well.
 SSH_USERNAME=ubuntu
 
