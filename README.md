@@ -15,7 +15,7 @@ mkdir -p ./Documents/cloud_stuff/docker_stuff
 
 ```
 # Create a docker volume to persist data
-docker volume create iceberg_vol2
+docker volume create iceberg_vol1
 ```
 ---
 
@@ -36,11 +36,11 @@ version: "1.0"
 services:
   awsbuild:
     image: centos:7
-    container_name: aws_iceberg2
+    container_name: aws_iceberg1
     env_file: .env
     volumes:
       - type: volume
-        source: iceberg_vol2
+        source: iceberg_vol1
         target: /app
       - type: bind
         source: /home/tlepple/Documents/cloud_stuff/docker_stuff
@@ -192,7 +192,7 @@ docker container rm aws_iceberg
 docker volume ls
 
 # remove a docker volume
-docker volume rm iceberg_vol2
+docker volume rm iceberg_vol1
 ```
 ---
 ---
