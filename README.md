@@ -47,7 +47,7 @@ services:
         target: /root/fishermans_wharf
     command: tail -f /dev/null
 volumes:
-  iceberg_vol2:
+  iceberg_vol1:
     external: true
 ```
 ---
