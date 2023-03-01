@@ -193,7 +193,7 @@ docker container rm aws_iceberg
 docker volume ls
 
 # remove a docker volume
-docker volume rm iceberg_vol1
+docker volume rm iceberg_vol2
 ```
 ---
 ---
