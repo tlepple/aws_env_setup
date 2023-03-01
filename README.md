@@ -105,23 +105,26 @@ setup_onenode=true
 ---
 
 
-# Build a docker container to execute this build
+## Build a docker container to execute this build
 * The softlink is running against a linux destop.  skip this for non linux systems
 
 ```
-# create a directory in OS for bind mount:
-cd ~
-mkdir -p ./Documents/cloud_stuff/docker_stuff
+cd /home/tlepple/Documents/cloud_stuff/docker_stuff/compose
 
-# create a softlink to this directory
-sudo ln -s /home/$USER/Documents/cloud_stuff/docker_stuff ~/fishermans_wharf
+docker compose up -d
+```
 
+---
+
+###  Connect to our new docker container:
+
+```
+# connect to command line of this container
+docker exec -it aws_iceberg bash
 ```
 
 
-
-
-### Pull the repo
+### Pull the repo for the rest of this setup:
 
 ```
 #install git
@@ -132,68 +135,10 @@ cd /app
 git clone https://github.com/tlepple/aws_env_setup.git
 
 ```
-
-
-### Edit the demo.properties file for your updates and set AMI and Region you are running in
-
-```
-vi /app/aws_env_setup/bin/provider/aws/demo.properties
-```
-
-### Sample demo.properties
-
-```
-###############################################################################
-#  Updates go here:
-###############################################################################
-OWNER_TAG=tlepple
-BIND_MNT_SOURCE="/home/tlepple/Documents/cloud_stuff/docker_stuff"
-HOST_PREFIX="icetesting-"
-
-# Below are the instance types for the various services. It's recommended to use
-# the defaults, however you can change them below, if needed.
-ONE_NODE_INSTANCE=t3.xlarge
-
-#PROJECT_TAG="'""personal development""'"
-ENDATE_TAG=permanent
-
-# set the docker bind mount properties
-BIND_MNT_TARGET="/fishermans_wharf/"
-
-# Ohio us-east-2
-AMI_ID=ami-03a311cadf2d2a6f8
-AWS_REGION=us-east-2
-
-
-
-###############################################################################
-#  No edits required below
-###############################################################################
-
-# Username to SSH to instances.
-# If you use your own AMI, you may need to change the ssh username as well.
-SSH_USERNAME=ubuntu
-
-# set component flags.  helpful in case you need to restart a failed build or use alternate setup
-setup_prereqs=true
-setup_onenode=true
-
-
-```
-
-
-### Export your AWS credentials
-
-
-```
-export AWS_ACCESS_KEY_ID=<your key>
-export AWS_SECRET_ACCESS_KEY=<your secret key>
-export AWS_DEFAULT_REGION=<aws region you want to run in>
-
-```
+---
+---
 
 ### Start the build:
-
 
 ```
 #  run the setup
