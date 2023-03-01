@@ -106,7 +106,6 @@ setup_onenode=true
 
 
 ## Build a docker container to execute this build
-* The softlink is running against a linux destop.  skip this for non linux systems
 
 ```
 cd /home/tlepple/Documents/cloud_stuff/docker_stuff/compose
