@@ -36,7 +36,7 @@ version: "1.0"
 services:
   awsbuild:
     image: centos:7
-    container_name: aws_iceberg1
+    container_name: aws_iceberg
     env_file: .env
     volumes:
       - type: volume
