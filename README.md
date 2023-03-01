@@ -2,6 +2,79 @@
 
 ---
 ---
+##  Docker Compose 
+
+####  Create a directory on your host for assets:
+
+```
+mkdir -p ./Documents/cloud_stuff/docker_stuff
+```
+---
+
+####  Create a docker volume that will be attached to our container:
+
+```
+# Create a docker volume to persist data
+docker volume create iceberg_vol2
+```
+---
+
+####  Create a docker compose file:
+
+```
+cd /home/tlepple/Documents/cloud_stuff/docker_stuff/compose
+
+vi compose.yaml
+```
+---
+
+
+#####  File Contents of `compose.yaml`
+
+```
+version: "1.0"
+services:
+  awsbuild:
+    image: centos:7
+    container_name: aws_iceberg2
+    env_file: .env
+    volumes:
+      - type: volume
+        source: iceberg_vol2
+        target: /app
+      - type: bind
+        source: /home/tlepple/Documents/cloud_stuff/docker_stuff
+        target: /root/fishermans_wharf
+    command: tail -f /dev/null
+volumes:
+  iceberg_vol2:
+    external: true
+```
+---
+
+####  create a `.env` file for some variables to be called from code:
+
+```
+cd /home/tlepple/Documents/cloud_stuff/docker_stuff/compose
+
+vi .env
+
+```
+---
+
+#####  File Contents of `.env`
+
+```
+# aws keys:
+AWS_ACCESS_KEY_ID=<replace with your aws key>
+AWS_SECRET_ACCESS_KEY=<replace with your aws secret key>
+AWS_DEFAULT_REGION=us-east-2
+
+#   These variables will persist through a stop and start of a container!
+```
+---
+---
+
 
 # Build a docker container to execute this build
 * The softlink is running against a linux destop.  skip this for non linux systems
@@ -16,23 +89,7 @@ sudo ln -s /home/$USER/Documents/cloud_stuff/docker_stuff ~/fishermans_wharf
 
 ```
 
-## Create the docker container and mount the directories
 
-
-```
-# Create a docker volume to persist data
-docker volume create iceberg_vol1
-
-
-docker run -it \
-  --name aws_iceberg \
-  --mount source=iceberg_vol1,target=/app \
-  --mount type=bind,source=/home/tlepple/Documents/cloud_stuff/docker_stuff,target=/root/fishermans_wharf \
-  centos:7 bash
-
-  
-    
-```
 
 
 ### Pull the repo
