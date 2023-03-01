@@ -70,6 +70,35 @@ AWS_ACCESS_KEY_ID=<replace with your aws key>
 AWS_SECRET_ACCESS_KEY=<replace with your aws secret key>
 AWS_DEFAULT_REGION=us-east-2
 
+OWNER_TAG=<your owner tag name>
+
+# change this to point to your bind mount location (wip)
+BIND_MNT_SOURCE="/home/tlepple/Documents/cloud_stuff/docker_stuff"
+
+# set the docker bind mount properties
+BIND_MNT_TARGET="/fishermans_wharf/"
+
+###############################################################################
+#  No edits required below
+###############################################################################
+
+HOST_PREFIX="icetesting-"
+
+# Below are the instance types for the various services. It's recommended to use
+# the defaults, however you can change them below, if needed.
+ONE_NODE_INSTANCE=t3.xlarge
+
+# Ohio us-east-2
+AMI_ID=ami-03a311cadf2d2a6f8
+AWS_REGION=us-east-2
+
+# Username to SSH to instances. All of the pre-selected AMIs use the 'centos' user.
+# If you use your own AMI, you may need to change the ssh username as well.
+SSH_USERNAME=ubuntu
+
+# set component flags.  helpful in case you need to restart a failed build or use alternate setup
+setup_prereqs=true
+setup_onenode=true
 #   These variables will persist through a stop and start of a container!
 ```
 ---
