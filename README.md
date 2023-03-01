@@ -7,7 +7,7 @@
 ####  Create a directory on your host for assets:
 
 ```
-mkdir -p ./Documents/cloud_stuff/docker_stuff
+mkdir -p ./Documents/cloud_stuff/docker_stuff/compose
 ```
 ---
 
