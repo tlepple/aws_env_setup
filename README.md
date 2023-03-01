@@ -83,6 +83,7 @@ BIND_MNT_TARGET="/fishermans_wharf/"
 ###############################################################################
 
 HOST_PREFIX="icetesting-"
+ENDATE_TAG=permanent
 
 # Below are the instance types for the various services. It's recommended to use
 # the defaults, however you can change them below, if needed.
