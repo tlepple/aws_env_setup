@@ -207,6 +207,9 @@ create_prereqs() {
   # add the elastic ip address public IP
   aws --region ${AWS_REGION:?} ec2 authorize-security-group-ingress --group-id ${sg:?} --protocol tcp --port 0-65535 --cidr ${eip_public_ip:?}/32
   
+  #  add an entry to allow the ec2 instance connect service to access this build too.   need to consider a process to sort the json to set this dynamically.
+  aws --region ${AWS_REGION:?} ec2 authorize-security-group-ingress --group-id ${sg:?} --protocol tcp --port 0-65535 --cidr 3.16.146.0/29
+  
   aws --region ${AWS_REGION:?} ec2 create-tags --resources ${sg:?} --tags Key=owner,Value=${OWNER_TAG:?} Key=Name,Value=${OWNER_TAG:?}-security-group
   echo "sg=${sg:?}" >> ${STARTING_DIR}/bin/provider/aws/.info
   log "New Security Group in ${AWS_REGION:?} created: ${OWNER_TAG:?}-security-group, ${sg:?}"
