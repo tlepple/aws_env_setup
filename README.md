@@ -29,7 +29,7 @@ vi compose.yaml
 ---
 
 
-#####  File Contents of `compose.yaml`
+#####  Example Contents of `compose.yaml` file for Linux
 
 ```
 version: "1.0"
@@ -44,6 +44,33 @@ services:
         target: /app
       - type: bind
         source: /home/tlepple/Documents/cloud_stuff/docker_stuff
+        target: /root/fishermans_wharf
+    command: tail -f /dev/null
+volumes:
+  iceberg_vol1:
+    external: true
+```
+---
+
+
+---
+
+
+#####  Example Contents of `compose.yaml` file for Windows
+
+```
+version: "1.0"
+services:
+  awsbuild:
+    image: centos:7
+    container_name: aws_iceberg
+    env_file: .env
+    volumes:
+      - type: volume
+        source: iceberg_vol1
+        target: /app
+      - type: bind
+        source: "C:/path/to/your/mount/directory
         target: /root/fishermans_wharf
     command: tail -f /dev/null
 volumes:
