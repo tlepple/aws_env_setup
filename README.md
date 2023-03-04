@@ -70,7 +70,7 @@ services:
         source: iceberg_vol1
         target: /app
       - type: bind
-        source: "C:/path/to/your/mount/directory
+        source: "C:/path/to/your/mount/directory"
         target: /root/fishermans_wharf
     command: tail -f /dev/null
 volumes:
@@ -101,6 +101,9 @@ OWNER_TAG=<your owner tag name>
 
 # change this to point to your bind mount location (wip)
 BIND_MNT_SOURCE="/home/tlepple/Documents/cloud_stuff/docker_stuff"
+
+# example window bind mount location
+#BIND_MNT_SOURCE="C:/path/to/your/mount/directory"
 
 # set the docker bind mount properties
 BIND_MNT_TARGET="/fishermans_wharf/"
