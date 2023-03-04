@@ -99,10 +99,10 @@ AWS_DEFAULT_REGION=us-east-2
 
 OWNER_TAG=<your owner tag name>
 
-# change this to point to your bind mount location (wip)
+# Use this bind mount variables for linux
 BIND_MNT_SOURCE="/home/tlepple/Documents/cloud_stuff/docker_stuff"
 
-# example window bind mount location
+# Use this bind mount variables for Windows
 #BIND_MNT_SOURCE="C:/path/to/your/mount/directory"
 
 # set the docker bind mount properties
