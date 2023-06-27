@@ -198,7 +198,7 @@ cd /app/aws_env_setup
 ---
 ---
 
-### Usefull docker commands
+### Other docker commands
 
 ```
 # list all containers on host
