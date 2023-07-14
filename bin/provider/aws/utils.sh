@@ -88,19 +88,28 @@ install_aws_cli() {
         ####################################################
         # then install AWS CLI
         #####################################################
-        echo "Installing AWS_CLI"
+         echo "Installing AWS_CLI"
         aws_cli_version=`aws --version 2>&1`
         echo "Current CLI version: $aws_cli_version"
         if [[ $aws_cli_version = *"aws-cli"* ]]; then
                 echo "AWS CLI already installed. Skipping"
                 return
-#       fi
         else
-                curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+                arch=$(uname -m)
+                if [ "$arch" == "x86_64" ]; then
+                    aws_cli_url="https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+                elif [ "$arch" == "aarch64" ]; then
+                    aws_cli_url="https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip"
+                else
+                    echo "Unsupported architecture: $arch"
+                    exit 1
+                fi
+
+                curl -s "$aws_cli_url" -o "awscliv2.zip"
                 unzip awscliv2.zip
                 ./aws/install -i /usr/local/aws -b /usr/local/bin 
                 rm -rf aws*
-        echo "Done installing AWS CLI v2"
+                echo "Done installing AWS CLI v2"
         fi
 }
 
